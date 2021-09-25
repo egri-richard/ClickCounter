@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity"
     android:id="@+id/layout">
 
@@ -13,9 +14,11 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="30sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:id="@+id/Counter"
+        android:textColor="#fff"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         />
 
     <Button
@@ -24,6 +27,7 @@
         android:layout_above="@+id/Counter"
         android:layout_centerHorizontal="true"
         android:text="+"
+        android:id="@+id/plusButton"
         />
 
     <Button
@@ -32,6 +36,7 @@
         android:layout_below="@+id/Counter"
         android:layout_centerHorizontal="true"
         android:text="-"
+        android:id="@+id/minusButton"
         />
 
 
