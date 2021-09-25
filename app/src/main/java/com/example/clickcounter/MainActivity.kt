@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity() {
             if(count < 0) {Counter.setTextColor(Color.RED)}
             var flag = false
 
+            if(count == 1) {Counter.setTextColor(Color.GREEN)}
+
             if(count >= 2) {
                 for(i in 2..count / 2) {
                     if (count % i == 0) {
@@ -74,6 +76,39 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putInt("countVal", count)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        val countVal = savedInstanceState.getInt("countVal")
+        count = countVal
+        Counter.text = count.toString()
+
+        var flag = false
+        if(count == 0) {Counter.setTextColor(Color.rgb(0, 0, 255))}
+        else if(count < 0) {Counter.setTextColor(Color.RED)}
+        else if(count == 1) {Counter.setTextColor(Color.GREEN)}
+        else if(count >= 2) {
+            for(i in 2..count / 2) {
+                if (count % i == 0) {
+                    flag = true
+                    break
+                }
+            }
+
+            if (!flag) {
+                Counter.setTextColor(Color.WHITE)
+            } else {
+                Counter.setTextColor(Color.GREEN)
+            }
+        }
     }
 
     fun init() {

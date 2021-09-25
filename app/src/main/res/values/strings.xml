@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ClickCounter</string>
+    <string name="textView_landText">0</string>
+    <string name="textView_portText">0</string>
 </resources>
