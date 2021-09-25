@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var minusButton: Button
     var count = 0
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +25,22 @@ class MainActivity : AppCompatActivity() {
             Counter.text = count.toString()
             if(count == 0) {Counter.setTextColor(Color.rgb(0, 0, 255))}
             if(count > 0) {Counter.setTextColor(Color.GREEN)}
+            var flag = false
+
+            if(count >= 2) {
+                for(i in 2..count / 2) {
+                    if (count % i == 0) {
+                        flag = true
+                        break
+                    }
+                }
+
+                if (!flag) {
+                    Counter.setTextColor(Color.WHITE)
+                } else {
+                    Counter.setTextColor(Color.GREEN)
+                }
+            }
         }
 
         minusButton.setOnClickListener {
@@ -31,6 +48,22 @@ class MainActivity : AppCompatActivity() {
             Counter.text = count.toString()
             if(count == 0) {Counter.setTextColor(Color.rgb(0, 0, 255))}
             if(count < 0) {Counter.setTextColor(Color.RED)}
+            var flag = false
+
+            if(count >= 2) {
+                for(i in 2..count / 2) {
+                    if (count % i == 0) {
+                        flag = true
+                        break
+                    }
+                }
+
+                if (!flag) {
+                    Counter.setTextColor(Color.WHITE)
+                } else {
+                    Counter.setTextColor(Color.GREEN)
+                }
+            }
         }
 
         Counter.setOnLongClickListener {
